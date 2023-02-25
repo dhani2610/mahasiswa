@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mahasiswa;
+use App\Models\PembayaranSpp;
 use App\Models\Prodi;
 use Illuminate\Http\Request;
 
@@ -54,7 +55,14 @@ class MahasiswaController extends Controller
         $data->prodi_id = $request->prodi_id;
         $data->cabang = $request->cabang;
         $data->cabang_ket = $request->cabang_ket;
-        $data->save();
+
+        if ($data->save()) {
+            
+            $id_mahasiswa = $data->id;
+            $data = new PembayaranSpp();
+            $data->mahasiswa_id = $id_mahasiswa;
+            $data->save();
+        }
 
         return redirect()->route('mahasiswa-list')->with(['success' => 'Successfully!']);
     }
