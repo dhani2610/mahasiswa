@@ -79,9 +79,9 @@ body[data-sidebar=dark] .mm-active .active {
                             <span key="t-dashboards">Pembayaran</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="{{ route('pos-keuangan-list') }}" key="t-default">POS Keuangan</a></li>
-                            <li><a href="#" key="t-default">Cek Pembayaran</a></li>
-                            <li><a href="#" key="t-default">Pembayaran Mahasiswa</a></li>
+                            <li><a class="d-none" href="{{ route('pos-keuangan-list') }}" key="t-default">POS Keuangan</a></li>
+                            <li><a href="#" key="t-default">Cek Pembayaran (On Progress)</a></li>
+                            <li><a href="{{ route('pembayaran-spp-list') }}" key="t-default">Pembayaran SPP Mahasiswa</a></li>
                         </ul>
                     </li>
                 @endif
@@ -93,8 +93,8 @@ body[data-sidebar=dark] .mm-active .active {
                             <span key="t-dashboards">Setting Event</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="{{ route('pengumuman-list') }}" key="t-default">Pengumuman</a></li>
-                            <li><a href="#" key="t-default">Kalender</a></li>
+                            <li><a href="{{ route('pengumuman-list') }}" key="t-default">Pengumuman (On Progress)</a></li>
+                            <li><a href="#" key="t-default">Kalender (On Progress)</a></li>
                         </ul>
                     </li>
                 @endif
@@ -115,7 +115,7 @@ body[data-sidebar=dark] .mm-active .active {
                             <span key="t-dashboards">Laporan</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="#" key="t-default">Laporan Pembayaran</a></li>
+                            <li><a href="{{ route('report-spp') }}" key="t-default">Laporan Pembayaran</a></li>
                         </ul>
                     </li>
                 @endif

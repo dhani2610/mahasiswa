@@ -6,13 +6,14 @@ use App\Http\Controllers\HistoryLogController;
 use App\Http\Controllers\JurnalPemasukanController;
 use App\Http\Controllers\JurnalPengeluaranController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\PembayaranSppController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\PosKeuanganController;
 use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TahunAjaranController;
 use App\Http\Controllers\UserController;
-use App\Models\JurnalPemasukan;
 use App\Models\JurnalPengeluaran;
 use Illuminate\Support\Facades\Route;
 
@@ -94,6 +95,13 @@ Route::middleware('auth:web')->group(function () {
     Route::get('pengumuman-edit/{id}', [PengumumanController::class, 'edit'])->name('pengumuman-edit');
     Route::post('pengumuman-update/{id}', [PengumumanController::class, 'update'])->name('pengumuman-update');
     Route::get('pengumuman-destroy/{id}', [PengumumanController::class, 'destroy'])->name('pengumuman-destroy');
+
+    Route::get('pembayaran-spp-list', [PembayaranSppController::class, 'index'])->name('pembayaran-spp-list');
+    Route::get('pembayaran-spp-mhs/{id}', [PembayaranSppController::class, 'create'])->name('pembayaran-spp-mhs');
+    Route::post('send-pembayaran/{id}', [PembayaranSppController::class, 'store'])->name('send-pembayaran');
+
+    Route::get('report-spp', [ReportController::class, 'spp'])->name('report-spp');
+
 
     // Master Data
      Route::get('master-data', function () {
